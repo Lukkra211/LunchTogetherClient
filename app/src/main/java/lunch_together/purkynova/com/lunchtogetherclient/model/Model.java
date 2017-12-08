@@ -37,11 +37,13 @@ public class Model
 
     public String register(String name, String mail, String password)
     {
+        Log.d("aaa", name + ", " + mail + ", " + password);
         return "";
     }
 
     public int login(String mail, String password)
     {
+        Log.d("aaa",mail + ", " + password);
         return -1;
     }
 
