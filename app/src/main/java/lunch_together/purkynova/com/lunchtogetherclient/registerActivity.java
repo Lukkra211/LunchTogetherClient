@@ -1,5 +1,6 @@
 package lunch_together.purkynova.com.lunchtogetherclient;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +36,9 @@ public class registerActivity extends AppCompatActivity {
                 //register = registerFunction(name,email,password);
                 if(register)
                 {
-
+                    finish();
+                    Intent loginIntent = new Intent(this,loginActivity.class);
+                    startActivity(loginIntent);
                 }
                 else
                 {
