@@ -15,9 +15,14 @@ public class EventListActivity extends ListActivity {
         setContentView(R.layout.activity_list);
 
         initParams();
+        initUI();
     }
 
     private void initParams() {
         this.listView = getListView();
+    }
+
+    private void initUI() {
+
     }
 }
