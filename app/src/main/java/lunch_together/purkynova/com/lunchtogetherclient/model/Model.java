@@ -15,99 +15,43 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import lunch_together.purkynova.com.lunchtogetherclient.representation.Event;
+import lunch_together.purkynova.com.lunchtogetherclient.representation.User;
 
 /**
  * Created by vojtech on 12/8/17.
  */
 
-public abstract class Client
+public class Model
 {
-    private final String serverURL = "10.10.5.209";
+    private final String ipAddress = "10.10.4.214:8000";
     private RequestQueue requestQueue;
 
-
-    public void init(Context context)
+    public Model(Context context)
     {
         requestQueue = Volley.newRequestQueue(context);
     }
 
-    //return true/false
-    public boolean register(String name, String email, String password)
+    public boolean register(User user)
     {
-        RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        JsonObjectRequest request = new JsonObjectRequest(serverURL+"/request", new JSONObject(), future, future);
-        requestQueue.add(request);
-
-        try
-        {
-            JSONObject response = future.get();
-            //Parse JSON
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-
         return false;
     }
 
-    //return id
-    public int login()
+    public int login(User user)
     {
-        RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        JsonObjectRequest request = new JsonObjectRequest(serverURL+"/login", new JSONObject(), future, future);
-        requestQueue.add(request);
-
-        try
-        {
-            JSONObject response = future.get();
-            //Parse JSON
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-
         return -1;
     }
 
-    public Event getUsersEvent()
+    public Event getEvent()
     {
-        RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        JsonObjectRequest request = new JsonObjectRequest(serverURL+"/getUsersEvent", new JSONObject(), future, future);
-        requestQueue.add(request);
-
-        try
-        {
-            JSONObject response = future.get();
-            //Parse JSON
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-
         return null;
     }
 
-    public Event getAllEvents()
+    public ArrayList<Event> getEventList()
     {
-        RequestFuture<JSONObject> future = RequestFuture.newFuture();
-        JsonObjectRequest request = new JsonObjectRequest(serverURL+"/getAllEvents", new JSONObject(), future, future);
-        requestQueue.add(request);
-
-        try
-        {
-            JSONObject response = future.get();
-            //Parse JSON
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
-
-        return null;
+        return new ArrayList<Event>();
     }
-
 }
