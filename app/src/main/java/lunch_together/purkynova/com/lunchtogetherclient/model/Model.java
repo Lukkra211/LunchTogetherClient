@@ -35,12 +35,12 @@ public class Model
         requestQueue = Volley.newRequestQueue(context);
     }
 
-    public boolean register(User user)
+    public boolean register(String name, String mail, String password)
     {
         return false;
     }
 
-    public int login(User user)
+    public int login(String mail, String password)
     {
         return -1;
     }
