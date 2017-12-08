@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import lunch_together.purkynova.com.lunchtogetherclient.model.Model;
+
 /**
  * @author Vojtěch Kudláček
  */
@@ -22,13 +24,14 @@ public class loginActivity extends AppCompatActivity {
     }
 
     public void onClickLogin(View view) {
-        int userID = -1;
-        String nick = nickEditText.getText().toString();
+        int userID;
+        String email = nickEditText.getText().toString();
         String password = passwordEditText.getText().toString();
+        Model commModel = new Model(this);
 
-        if(!(nick.equals("") || password.equals("")))
+        if(!(email.equals("") || password.equals("")))
         {
-            //userID = loginFunction(name,password);
+            userID = commModel.login(email,password);
             if (userID > -1)
             {
                 Intent listIntent = new Intent(this,MainActivity.class); //Edit to listActivity

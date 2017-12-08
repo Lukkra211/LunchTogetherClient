@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import lunch_together.purkynova.com.lunchtogetherclient.model.Model;
+
 /**
  * @author Vojtěch Kudláček
  */
@@ -32,12 +34,13 @@ public class registerActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
         String passwordConfirm = passwordConfirmEditText.getText().toString();
         Boolean register = false;
+        Model commModel = new Model(this);
 
         if(password.equals(passwordConfirm) )
         {
             if (!(name.equals("") || email.equals("") || password.equals("")))
             {
-                //register = registerFunction(name,email,password);
+                register = commModel.register(name,email,password);
                 if(register)
                 {
                     Intent loginIntent = new Intent(this,loginActivity.class);
