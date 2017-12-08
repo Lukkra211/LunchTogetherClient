@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class registerActivity extends AppCompatActivity {
     private EditText nameEditText;
@@ -21,6 +22,33 @@ public class registerActivity extends AppCompatActivity {
     }
 
     public void onClickRegister_activityRegister(View view) {
+        String name = nameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        String passwordConfirm = passwordConfirmEditText.getText().toString();
+        Boolean register = false;
 
+        if(password.equals(passwordConfirm) )
+        {
+            if (!(name.equals("") || email.equals("") || password.equals("")))
+            {
+                //register = registerFunction(name,email,password);
+                if(register)
+                {
+
+                }
+                else
+                {
+                    Toast.makeText(this, "Registrace byla neúspěšná", Toast.LENGTH_SHORT).show();
+                }
+            }else
+            {
+             Toast.makeText(this,"Všechna pole musí být vyplněna !",Toast.LENGTH_LONG).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(this,"Hesla se neshodují !",Toast.LENGTH_LONG).show();
+        }
     }
 }
