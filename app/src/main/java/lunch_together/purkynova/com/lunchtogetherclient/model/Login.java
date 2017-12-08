@@ -1,8 +1,6 @@
 package lunch_together.purkynova.com.lunchtogetherclient.model;
 
 import android.os.AsyncTask;
-import android.util.Log;
-import android.view.View;
 
 import org.json.JSONObject;
 

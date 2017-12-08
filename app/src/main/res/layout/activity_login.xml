@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="lunch_together.purkynova.com.lunchtogetherclient.loginActivity">
+    tools:context="lunch_together.purkynova.com.lunchtogetherclient.LoginActivity">
 
     <EditText
         android:id="@+id/loginActivity_editTextnickName"

@@ -12,7 +12,7 @@ import lunch_together.purkynova.com.lunchtogetherclient.model.Model;
 /**
  * @author Vojtěch Kudláček
  */
-public class loginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private EditText nickEditText;
     private EditText passwordEditText;
     @Override
@@ -27,14 +27,14 @@ public class loginActivity extends AppCompatActivity {
         int userID;
         String email = nickEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        Model commModel = new Model(this);
+        Model commModel = new Model();
 
         if(!(email.equals("") || password.equals("")))
         {
             userID = commModel.login(email,password);
             if (userID != -1)
             {
-                Intent listIntent = new Intent(this,MainActivity.class); //Edit to listActivity
+                Intent listIntent = new Intent(this,EventListActivity.class); //Edit to listActivity
                 listIntent.putExtra("id",userID);
                 startActivity(listIntent);
                 finish();
@@ -49,8 +49,8 @@ public class loginActivity extends AppCompatActivity {
     }
 
     public void onClickRegister_activityLogin(View view) {
-        Intent registerIntent = new Intent(this,registerActivity.class);
-        startActivity(registerIntent); //starting registerActivity
+        Intent registerIntent = new Intent(this,RegisterActivity.class);
+        startActivity(registerIntent); //starting RegisterActivity
 
     }
 }

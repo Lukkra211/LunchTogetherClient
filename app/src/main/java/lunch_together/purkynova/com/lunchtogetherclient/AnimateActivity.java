@@ -2,14 +2,13 @@ package lunch_together.purkynova.com.lunchtogetherclient;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.preference.PreferenceActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 
-public class animateActivity extends AppCompatActivity {
+public class AnimateActivity extends AppCompatActivity {
 
     Intent loginIntent;
     private Animation fadeIn = new AlphaAnimation(0,1);
@@ -17,7 +16,7 @@ public class animateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animate);
-        loginIntent = new Intent(this,loginActivity.class);
+        loginIntent = new Intent(this,LoginActivity.class);
 
         setAnimation();
 
@@ -38,7 +37,7 @@ public class animateActivity extends AppCompatActivity {
         @Override
         public void run() {
             startActivity(loginIntent);
-
+            finish();
         }
     };
 }

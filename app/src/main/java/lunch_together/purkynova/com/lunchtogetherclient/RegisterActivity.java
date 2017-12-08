@@ -13,7 +13,7 @@ import lunch_together.purkynova.com.lunchtogetherclient.model.Model;
  * @author Vojtěch Kudláček
  */
 
-public class registerActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
     private EditText nameEditText;
     private EditText emailEditText;
     private EditText passwordEditText;
@@ -34,7 +34,7 @@ public class registerActivity extends AppCompatActivity {
         String password = passwordEditText.getText().toString();
         String passwordConfirm = passwordConfirmEditText.getText().toString();
         String register = "";
-        Model commModel = new Model(this);
+        Model commModel = new Model();
 
         if(password.equals(passwordConfirm) )
         {
@@ -44,7 +44,7 @@ public class registerActivity extends AppCompatActivity {
                 if(register.equals(""))
                 {
                     Toast.makeText(this,"Registrace proběhla úspěšně !",Toast.LENGTH_LONG).show();
-                    Intent loginIntent = new Intent(this,loginActivity.class);
+                    Intent loginIntent = new Intent(this,LoginActivity.class);
                     startActivity(loginIntent);
                     finish();
                 }

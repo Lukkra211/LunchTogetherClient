@@ -1,34 +1,6 @@
 package lunch_together.purkynova.com.lunchtogetherclient.model;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.RequestFuture;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import lunch_together.purkynova.com.lunchtogetherclient.representation.Event;
 import lunch_together.purkynova.com.lunchtogetherclient.representation.User;
@@ -72,6 +44,17 @@ public class Model
 
     public ArrayList<Event> getEventList()
     {
-        return new ArrayList<Event>();
+        ArrayList<Event> test = new ArrayList<Event>();
+        try {
+            test.add(new Event("První", new ArrayList<User>(), "2017-12-09 12:00", "Purkuňova 1990"));
+            test.add(new Event("Druhá", new ArrayList<User>(), "2017-12-09 12:00", "Měsíc 100"));
+            test.add(new Event("Třetí", new ArrayList<User>(), "2017-12-09 12:00", "Na nádraží"));
+            test.add(new Event("Čtvrtá", new ArrayList<User>(), "2017-12-09 12:00", "Na hřbitově"));
+        } catch (Exception e) {
+
+        }
+
+
+        return test;
     }
 }

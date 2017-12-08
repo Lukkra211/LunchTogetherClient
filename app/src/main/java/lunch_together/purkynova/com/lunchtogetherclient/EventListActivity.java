@@ -24,7 +24,7 @@ public class EventListActivity extends ListActivity {
     }
 
     private void initParams() {
-        this.model = new Model(this);
+        this.model = new Model();
         this.listView = getListView();
     }
 
