@@ -32,18 +32,19 @@ public class loginActivity extends AppCompatActivity {
         if(!(email.equals("") || password.equals("")))
         {
             userID = commModel.login(email,password);
-            if (userID > -1)
+            if (userID != -1)
             {
                 Intent listIntent = new Intent(this,MainActivity.class); //Edit to listActivity
-                listIntent.putExtra("",userID);
+                listIntent.putExtra("id",userID);
                 startActivity(listIntent);
+                finish();
             }else
             {
-                Toast.makeText(this,"Heslo nebo email nebyli zadány správně",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"Heslo nebo email nebyli zadány správně",Toast.LENGTH_LONG).show();
             }
         }else
         {
-            Toast.makeText(this,"Všechna pole musí být vyplněna",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Všechna pole musí být vyplněna",Toast.LENGTH_LONG).show();
         }
     }
 

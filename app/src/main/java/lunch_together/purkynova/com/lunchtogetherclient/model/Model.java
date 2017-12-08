@@ -35,9 +35,9 @@ public class Model
         requestQueue = Volley.newRequestQueue(context);
     }
 
-    public boolean register(String name, String mail, String password)
+    public String register(String name, String mail, String password)
     {
-        return false;
+        return "";
     }
 
     public int login(String mail, String password)

@@ -33,7 +33,7 @@ public class registerActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
         String passwordConfirm = passwordConfirmEditText.getText().toString();
-        Boolean register = false;
+        String register = "";
         Model commModel = new Model(this);
 
         if(password.equals(passwordConfirm) )
@@ -41,24 +41,25 @@ public class registerActivity extends AppCompatActivity {
             if (!(name.equals("") || email.equals("") || password.equals("")))
             {
                 register = commModel.register(name,email,password);
-                if(register)
+                if(register.equals(""))
                 {
+                    Toast.makeText(this,"Registrace proběhla úspěšně !",Toast.LENGTH_LONG).show();
                     Intent loginIntent = new Intent(this,loginActivity.class);
                     startActivity(loginIntent);
                     finish();
                 }
                 else
                 {
-                    Toast.makeText(this, "Registrace byla neúspěšná", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, register, Toast.LENGTH_LONG).show();
                 }
             }else
             {
-             Toast.makeText(this,"Všechna pole musí být vyplněna !",Toast.LENGTH_SHORT).show();
+             Toast.makeText(this,"Všechna pole musí být vyplněna !",Toast.LENGTH_LONG).show();
             }
         }
         else
         {
-            Toast.makeText(this,"Hesla se neshodují !",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Hesla se neshodují !",Toast.LENGTH_LONG).show();
         }
     }
 }
