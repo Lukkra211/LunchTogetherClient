@@ -16,7 +16,7 @@ public class loginActivity extends AppCompatActivity {
 
     }
 
-    public void onClickRegister(View view) {
-        
+    public void onClickRegister_activityLogin(View view) {
+
     }
 }

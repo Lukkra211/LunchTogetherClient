@@ -41,6 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/loginActivity_editTextPassword"
-        android:onClick="onClickRegister"
+        android:onClick="onClickRegister_activityLogin"
         android:text="Registrovat se" />
 </RelativeLayout>
