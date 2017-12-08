@@ -62,4 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this,"Hesla se neshodují !",Toast.LENGTH_LONG).show();
         }
     }
+
+    public void onClickBack_register(View view) {
+    }
 }
