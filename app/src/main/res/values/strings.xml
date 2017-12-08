@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">LunchTogetherClient</string>
+    <string name="title_activity_login">loginActivity</string>
+    <string name="fullName">Full name</string>
+    <string name="password">password</string>
+    <string name="passwordConfirm">Confirm password</string>
+    <string name="register">Register</string>
 </resources>
