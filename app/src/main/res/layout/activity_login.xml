@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Nick" />
+        android:hint="Email" />
 
     <EditText
         android:id="@+id/loginActivity_editTextPassword"
@@ -24,7 +24,7 @@
         android:layout_below="@+id/loginActivity_editTextnickName"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Password"/>
+        android:hint="@string/password"/>
 
     <Button
         android:id="@+id/loginActivity_buttonLogin"
@@ -42,5 +42,5 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/loginActivity_editTextPassword"
         android:onClick="onClickRegister_activityLogin"
-        android:text="Registrovat se" />
+        android:text="@string/register" />
 </RelativeLayout>

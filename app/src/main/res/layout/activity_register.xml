@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Celé jméno" />
+        android:hint="@string/fullName" />
 
     <EditText
         android:id="@+id/registerActivity_editTextEmail"
@@ -34,7 +34,7 @@
         android:layout_below="@+id/registerActivity_editTextEmail"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Heslo" />
+        android:hint="@string/password" />
 
     <EditText
         android:id="@+id/registerActivity_editTextPasswordConfirm"
@@ -44,7 +44,7 @@
         android:layout_below="@+id/registerActivity_editTextPassword"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Ověřit heslo" />
+        android:hint="@string/passwordConfirm" />
 
     <Button
         android:id="@+id/registerActivity_buttonRegister"
@@ -53,6 +53,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:onClick="onClickRegister_activityRegister"
-        android:text="Registrovat se" />
+        android:text="@string/register" />
 
 </RelativeLayout>
