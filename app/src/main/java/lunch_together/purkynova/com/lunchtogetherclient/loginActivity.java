@@ -12,7 +12,11 @@ public class loginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-    public void OnClickLogin(View view) {
+    public void onClickLogin(View view) {
+
+    }
+
+    public void onClickRegister(View view) {
 
     }
 }

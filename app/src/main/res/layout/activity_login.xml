@@ -33,7 +33,7 @@
         android:text="Přihlásit se"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:onClick="OnClickLogin"/>
+        android:onClick="onClickLogin"/>
 
     <Button
         android:id="@+id/loginActivity_buttonRegister"
@@ -41,5 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/loginActivity_editTextPassword"
+        android:onClick="onClickRegister"
         android:text="Registrovat se" />
 </RelativeLayout>
