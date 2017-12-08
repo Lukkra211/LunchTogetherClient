@@ -37,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent listIntent = new Intent(this,EventListActivity.class); //Edit to listActivity
                 listIntent.putExtra("id",userID);
                 startActivity(listIntent);
+
                 finish();
             }else
             {
