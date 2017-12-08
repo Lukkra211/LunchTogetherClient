@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="#e6e6e6"
+    android:background="#eaeaea"
     android:orientation="horizontal"
     android:weightSum="4">
     <LinearLayout
@@ -22,7 +22,6 @@
         <TextView
             android:id="@+id/list_row_place"
             android:layout_width="match_parent"
-            android:padding="1dip"
             android:textSize="12sp"
             android:textColor="#537de0"
             android:layout_height="0dp"
