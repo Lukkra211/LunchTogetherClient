@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickRegister_activityLogin(View view) {
         Intent registerIntent = new Intent(this,RegisterActivity.class);
         startActivity(registerIntent); //starting RegisterActivity
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
 
     }
 }

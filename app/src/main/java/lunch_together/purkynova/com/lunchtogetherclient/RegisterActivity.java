@@ -63,6 +63,14 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void finish()
+    {
+        super.finish();
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+    }
+
     public void onClickBack_register(View view) {
+        finish();
     }
 }
