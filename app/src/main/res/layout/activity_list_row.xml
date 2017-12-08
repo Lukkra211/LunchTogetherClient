@@ -37,6 +37,7 @@
         android:id="@+id/list_row_time"
         android:layout_width="0dp"
         android:textAlignment="center"
+        android:textSize="18sp"
         android:gravity="center"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
