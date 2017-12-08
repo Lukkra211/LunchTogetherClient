@@ -17,6 +17,6 @@ public class loginActivity extends AppCompatActivity {
     }
 
     public void onClickRegister(View view) {
-
+        
     }
 }
