@@ -1,6 +1,7 @@
 package lunch_together.purkynova.com.lunchtogetherclient;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -13,11 +14,15 @@ public class EventListActivity extends ListActivity {
 
     private ListView listView;
     private Model model;
+    private int UserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
+        Intent intent = getIntent();
+        UserID = intent.getExtras().getInt("id");
 
         initParams();
         initUI();
