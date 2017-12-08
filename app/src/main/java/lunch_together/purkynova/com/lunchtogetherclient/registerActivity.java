@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * @author Vojtěch Kudláček
+ */
+
 public class registerActivity extends AppCompatActivity {
     private EditText nameEditText;
     private EditText emailEditText;
@@ -36,9 +40,9 @@ public class registerActivity extends AppCompatActivity {
                 //register = registerFunction(name,email,password);
                 if(register)
                 {
-                    finish();
                     Intent loginIntent = new Intent(this,loginActivity.class);
                     startActivity(loginIntent);
+                    finish();
                 }
                 else
                 {
@@ -46,12 +50,12 @@ public class registerActivity extends AppCompatActivity {
                 }
             }else
             {
-             Toast.makeText(this,"Všechna pole musí být vyplněna !",Toast.LENGTH_LONG).show();
+             Toast.makeText(this,"Všechna pole musí být vyplněna !",Toast.LENGTH_SHORT).show();
             }
         }
         else
         {
-            Toast.makeText(this,"Hesla se neshodují !",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Hesla se neshodují !",Toast.LENGTH_SHORT).show();
         }
     }
 }
