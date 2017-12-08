@@ -7,7 +7,7 @@
     tools:context="lunch_together.purkynova.com.lunchtogetherclient.loginActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/loginActivity_editTextnickName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -17,19 +17,29 @@
         android:hint="Nick" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/loginActivity_editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText"
-        android:layout_below="@+id/editText"
+        android:layout_alignEnd="@+id/loginActivity_editTextnickName"
+        android:layout_below="@+id/loginActivity_editTextnickName"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="Password"/>
 
     <Button
+        android:id="@+id/loginActivity_buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Přihlásit se"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="OnClickLogin"/>
+
+    <Button
+        android:id="@+id/loginActivity_buttonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/loginActivity_editTextPassword"
+        android:text="Registrovat se" />
 </RelativeLayout>
