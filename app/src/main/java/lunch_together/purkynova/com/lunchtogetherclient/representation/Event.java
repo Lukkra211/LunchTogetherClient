@@ -1,5 +1,7 @@
 package lunch_together.purkynova.com.lunchtogetherclient.representation;
 
+import android.util.Log;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,11 +24,14 @@ public final class Event {
         this.users = users;
         this.note = note;
         this.restaurant = restaurant;
-
-        this.time = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time);
+        this.time = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(time);
     }
 
     public String getTime() {
         return new SimpleDateFormat("HH:mm").format(this.time);
+    }
+
+    public String toString() {
+        return String.valueOf(title);
     }
 }

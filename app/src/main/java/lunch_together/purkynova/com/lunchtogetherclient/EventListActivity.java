@@ -2,26 +2,19 @@ package lunch_together.purkynova.com.lunchtogetherclient;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.util.Calendar;
 
 import lunch_together.purkynova.com.lunchtogetherclient.helper.CustomListAdapter;
-import lunch_together.purkynova.com.lunchtogetherclient.model.Data;
 import lunch_together.purkynova.com.lunchtogetherclient.model.Model;
-import lunch_together.purkynova.com.lunchtogetherclient.representation.Event;
 
 public class EventListActivity extends ListActivity implements View.OnClickListener {
 
@@ -48,12 +41,10 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
 
         Model.data.userID = this.getIntent().getExtras().getInt("id");
         model.initializeData(String.valueOf(Model.data.userID));
-        model.initializeData("5");
     }
 
     private void initUI() {
         listView.setOnItemClickListener(new OnItemClick());
-
         createEvent.setOnClickListener(this);
 
         CustomListAdapter eventAdapter = new CustomListAdapter(

@@ -17,8 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"
+            android:paddingLeft="1dp"
             android:textColor="#ff5000"
-            android:textSize="18sp" />
+            android:textSize="25sp" />
         <TextView
             android:id="@+id/list_row_place"
             android:layout_width="match_parent"

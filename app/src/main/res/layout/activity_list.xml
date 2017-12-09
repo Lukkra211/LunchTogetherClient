@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="lunch_together.purkynova.com.lunchtogetherclient.EventListActivity">
+    tools:context="lunch_together.purkynova.com.lunchtogetherclient.EventListActivity"
+    android:orientation="vertical">
 
     <Button
         android:id="@+id/create_event"

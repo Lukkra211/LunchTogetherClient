@@ -1,5 +1,7 @@
 package lunch_together.purkynova.com.lunchtogetherclient.model;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -26,7 +28,7 @@ public class Data
         {
             JSONArray jsonEvents = response.getJSONArray("events");
             JSONArray jsonUsers = response.getJSONArray("users");
-            activeEvent = Integer.parseInt(response.getString("user_belongs_to"));
+            userID = response.getInt("user_belongs_to");
 
             for(int i = 0; i < jsonUsers.length(); i++)
             {
@@ -46,19 +48,23 @@ public class Data
                 String name = jsonEvents.getJSONObject(i).getString("name");
                 String note = jsonEvents.getJSONObject(i).getString("note");
 
-                JSONObject jsonRestaurant = jsonEvents.getJSONObject(i).getJSONObject("restaurant");
 
-                String restaurant_id = jsonRestaurant.getString("restaurant_id");
-                String name_restaurant = jsonRestaurant.getString("name_restaurant");
-                String menu = jsonRestaurant.getString("menu");
-                Float rating = Float.parseFloat(jsonRestaurant.getJSONObject("rating").getString("aggregate_rating"));
+                Restaurant restaurant = null;
+                try {
+                    JSONObject jsonRestaurant = jsonEvents.getJSONObject(i).getJSONObject("restaurant");
 
-                String address = jsonRestaurant.getJSONObject("location").getString("address");
-                String city = jsonRestaurant.getJSONObject("location").getString("city");
+                    String restaurant_id = jsonRestaurant.getString("restaurant_id");
+                    String name_restaurant = jsonRestaurant.getString("name_restaurant");
+                    String menu = jsonRestaurant.getString("menu");
+                    Float rating = Float.parseFloat(jsonRestaurant.getJSONObject("rating").getString("aggregate_rating"));
 
-                String addr = address.substring(0,address.indexOf(","));
+                    String address = jsonRestaurant.getJSONObject("location").getString("address");
+                    String city = jsonRestaurant.getJSONObject("location").getString("city");
 
-                Restaurant restaurant = new Restaurant(Integer.parseInt(restaurant_id),name_restaurant,city + " " + addr,menu,rating);
+                    String addr = address.substring(0,address.indexOf(","));
+
+                    restaurant = new Restaurant(Integer.parseInt(restaurant_id),name_restaurant,city + " " + addr,menu,rating);
+                } catch (Exception e) {}
 
                 ArrayList<User> eventUsers = new ArrayList<>();
 
@@ -73,7 +79,6 @@ public class Data
                 Event event = new Event(Integer.parseInt(id),name,eventUsers, time,note,restaurant);
                 events.add(event);
             }
-            System.out.println("Complete");
         }
         catch (Exception ex)
         {
