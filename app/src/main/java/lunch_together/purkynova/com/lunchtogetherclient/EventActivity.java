@@ -1,10 +1,7 @@
 package lunch_together.purkynova.com.lunchtogetherclient;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
 
 public class EventActivity extends AppCompatActivity {
 
