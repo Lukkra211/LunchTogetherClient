@@ -30,6 +30,8 @@ public class EventListActivity extends ListActivity {
     private void initParams() {
         this.model = new Model();
         this.listView = getListView();
+
+        model.initializeData(String.valueOf(this.getIntent().getExtras().getInt("id")));
     }
 
     private void initUI() {
