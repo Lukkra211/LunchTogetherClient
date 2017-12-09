@@ -15,9 +15,9 @@ import lunch_together.purkynova.com.lunchtogetherclient.representation.User;
 
 public class Data
 {
+    public static int activeEvent = -1;
     public static ArrayList<Event> events = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
-    public static ArrayList<User> restaurant = new ArrayList<>();
 
     public Data(JSONObject response)
     {
@@ -25,6 +25,7 @@ public class Data
         {
             JSONArray jsonEvents = response.getJSONArray("events");
             JSONArray jsonUsers = response.getJSONArray("users");
+            activeEvent = Integer.parseInt(response.getString("user_belongs_to"));
 
             for(int i = 0; i < jsonUsers.length(); i++)
             {
@@ -57,7 +58,7 @@ public class Data
                 String addr = address.substring(0,address.indexOf(","));
 
                 Restaurant restaurant = new Restaurant(Integer.parseInt(restaurant_id),name_restaurant,city + " " + addr,menu,rating);
-                
+
                 ArrayList<User> eventUsers = new ArrayList<>();
 
                 for (int j = 0; j < users.size() ; j++)
