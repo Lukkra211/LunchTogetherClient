@@ -1,12 +1,16 @@
 package lunch_together.purkynova.com.lunchtogetherclient;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class AnimateActivity extends AppCompatActivity {
 
@@ -16,13 +20,13 @@ public class AnimateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animate);
+        Typeface font = Typeface.createFromAsset(getAssets(), "Roboto-Light.ttf");
+        ((TextView)findViewById(R.id.animateActivity_logo)).setTypeface(font);
         loginIntent = new Intent(this,LoginActivity.class);
 
         setAnimation();
 
         new Handler().postDelayed(timeH, 3000);
-
-
     }
 
     private void setAnimation()

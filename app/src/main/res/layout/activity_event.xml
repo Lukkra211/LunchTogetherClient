@@ -115,15 +115,17 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:id="@+id/attentlayout"
+            android:id="@+id/attendRL"
             android:layout_height="wrap_content"
-            android:onClick="onClickAttend"
+            android:onClick="attend"
+            android:visibility="gone"
             android:layout_weight="3">
 
             <ImageView
                 android:id="@+id/attendIV"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/attend"/>
 
             <TextView
@@ -138,15 +140,17 @@
 
 
         <RelativeLayout
+            android:id="@+id/leaveRL"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="onClickLeave"
+            android:onClick="leave"
             android:layout_weight="3">
 
             <ImageView
                 android:id="@+id/ignoreIV"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
                 android:src="@drawable/ignore"/>
 
             <TextView
