@@ -14,15 +14,17 @@
         <activity android:name=".EventListActivity">
 
         </activity>
-		<activity android:name=".EventActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-		<activity android:name=".AnimateActivity" android:theme="@style/AppTheme.NoActionBar">
+		<activity android:name=".EventActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+		<activity android:name=".AnimateActivity" android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
     </application>
 
