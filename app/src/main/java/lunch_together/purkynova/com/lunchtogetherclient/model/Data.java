@@ -19,6 +19,7 @@ public class Data
 {
     public static ArrayList<Event> events = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
+    public static ArrayList<Restaurant> restaurants = new ArrayList<>();
     public static int activeEvent = -1;
     public static int userID = -1;
 
@@ -28,7 +29,6 @@ public class Data
         {
             JSONArray jsonEvents = response.getJSONArray("events");
             JSONArray jsonUsers = response.getJSONArray("users");
-            userID = response.getInt("user_belongs_to");
 
             for(int i = 0; i < jsonUsers.length(); i++)
             {
@@ -55,7 +55,6 @@ public class Data
 
                     String restaurant_id = jsonRestaurant.getString("restaurant_id");
                     String name_restaurant = jsonRestaurant.getString("name_restaurant");
-                    String menu = jsonRestaurant.getString("menu");
                     Float rating = Float.parseFloat(jsonRestaurant.getJSONObject("rating").getString("aggregate_rating"));
 
                     String address = jsonRestaurant.getJSONObject("location").getString("address");
@@ -63,7 +62,10 @@ public class Data
 
                     String addr = address.substring(0,address.indexOf(","));
 
-                    restaurant = new Restaurant(Integer.parseInt(restaurant_id),name_restaurant,city + " " + addr,menu,rating, 0, 0);
+                    String x = jsonRestaurant.getJSONObject("location").getString("latitude");
+                    String y = jsonRestaurant.getJSONObject("location").getString("longitude");
+
+                    restaurant = new Restaurant(Integer.parseInt(restaurant_id),name_restaurant,city + " " + addr,Float.parseFloat(x),Float.parseFloat(y),rating);
                 } catch (Exception e) {}
 
                 ArrayList<User> eventUsers = new ArrayList<>();
@@ -72,6 +74,8 @@ public class Data
                 {
                     if (users.get(j).eventID == Integer.parseInt(id))
                     {
+                        if(users.get(j).id == userID)
+                            Data.activeEvent = i;
                         eventUsers.add(users.get(j));
                     }
                 }
@@ -85,5 +89,4 @@ public class Data
             ex.printStackTrace();
         }
     }
-
 }
