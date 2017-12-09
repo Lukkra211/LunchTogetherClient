@@ -15,10 +15,10 @@ import java.net.URLEncoder;
  * Created by vojtech on 12/9/17.
  */
 
-public class CreateEvent extends AsyncTask<String, Void, Void>
+public class CreateEvent extends AsyncTask<String, Integer, Integer>
 {
     @Override
-    protected Void doInBackground(String... params)
+    protected Integer doInBackground(String... params)
     {
         try
         {
@@ -38,18 +38,19 @@ public class CreateEvent extends AsyncTask<String, Void, Void>
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             StringBuilder stringBuilder = new StringBuilder();
-            /*
+
             String line,result = "";
             while ((line = reader.readLine()) != null)
                 stringBuilder.append(line + "\n");
 
             result = stringBuilder.toString();
-            JSONObject json = new JSONObject(stringBuilder.toString());*/
+            JSONObject json = new JSONObject(stringBuilder.toString());
+            return Integer.parseInt(json.getString("event_id"));
         }
         catch (Exception ex)
         {
             ex.printStackTrace();
         }
-        return null;
+        return -1;
     }
 }

@@ -111,7 +111,6 @@ public class EventActivity extends AppCompatActivity
 
         @Override
         public void onClick(View view) {
-            Log.w("AAA", "2");
             float x = 0;
             float y = 0;
 
@@ -127,4 +126,6 @@ public class EventActivity extends AppCompatActivity
             startActivity(intent);
         }
     }
+
+
 }

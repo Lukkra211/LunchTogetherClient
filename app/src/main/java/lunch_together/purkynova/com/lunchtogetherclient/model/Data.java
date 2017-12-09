@@ -89,4 +89,22 @@ public class Data
             ex.printStackTrace();
         }
     }
+
+    public static User getActiveUser() {
+        for (User user : Data.users) {
+            if (user.id == userID) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public static Restaurant getRestaurantByName(String name) {
+        for (Restaurant restaurant : Data.restaurants) {
+            if (restaurant.name == name) {
+                return restaurant;
+            }
+        }
+        return null;
+    }
 }
