@@ -22,7 +22,7 @@ public class LeaveEvent extends AsyncTask<String, Void, Void>
         {
             String data = "&" + URLEncoder.encode("user_id", "UTF-8") + "=" + URLEncoder.encode(params[0], "UTF-8");
 
-            URL url = new URL("http://10.10.4.214:8000/delete_event");
+            URL url = new URL("http://10.10.4.214:8000/api/leave_event");
 
             URLConnection connection = url.openConnection();
             connection.setDoOutput(true);

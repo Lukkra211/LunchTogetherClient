@@ -39,6 +39,7 @@ public class Login extends AsyncTask<String, Void, Integer>{
             JSONObject json = new JSONObject(stringBuilder.toString());
 
             int userid = Integer.parseInt(json.get("user_id").toString());
+            Data.userID = userid;
 
             return userid;
         }

@@ -25,6 +25,7 @@ public final class Event {
         this.note = note;
         this.restaurant = restaurant;
         this.time = new SimpleDateFormat("dd.MM.yyyy HH:mm").parse(time);
+
     }
 
     public String getTime() {

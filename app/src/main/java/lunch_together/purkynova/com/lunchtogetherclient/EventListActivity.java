@@ -3,26 +3,39 @@ package lunch_together.purkynova.com.lunchtogetherclient;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import lunch_together.purkynova.com.lunchtogetherclient.helper.CustomListAdapter;
 import lunch_together.purkynova.com.lunchtogetherclient.model.CreateEvent;
 import lunch_together.purkynova.com.lunchtogetherclient.model.Data;
 
+import lunch_together.purkynova.com.lunchtogetherclient.model.GetRestaurants;
 import lunch_together.purkynova.com.lunchtogetherclient.model.Model;
+import lunch_together.purkynova.com.lunchtogetherclient.representation.Event;
+import lunch_together.purkynova.com.lunchtogetherclient.representation.Restaurant;
+import lunch_together.purkynova.com.lunchtogetherclient.representation.User;
 
 public class EventListActivity extends ListActivity implements View.OnClickListener {
 
@@ -39,6 +52,14 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        try
+        {
+            new GetRestaurants().execute("").get();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         initParams();
         initUI();
     }
@@ -57,6 +78,10 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
         listView.setOnItemClickListener(new OnItemClick());
         createEvent.setOnClickListener(this);
 
+        setAdapter();
+    }
+
+    private void setAdapter() {
         CustomListAdapter eventAdapter = new CustomListAdapter(
                 this,
                 R.layout.activity_list_row,
@@ -65,11 +90,20 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
         setListAdapter(eventAdapter);
     }
 
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        if(model == null)
+            new Model().initializeData(String.valueOf(Data.userID));
+    }
+
     class OnItemClick implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             Intent intent = new Intent(getApplicationContext(), EventActivity.class);
             intent.putExtra("EventID", Model.data.events.get(i).id);
+            intent.putExtra("Name", ((AutoCompleteTextView) adapterView.findViewById(R.id.restaurantsACTV)).getText().toString());
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.empty);
         }
@@ -130,6 +164,20 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
 
         date = (EditText) dialogView.findViewById(R.id.event_add_date);
         time = (EditText) dialogView.findViewById(R.id.event_add_time);
+        TextView headerCreateTV = (TextView) dialogView.findViewById(R.id.headerCreateTV);
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "Roboto-Light.ttf");
+        headerCreateTV.setTypeface(font);
+
+        ArrayList<String> restaurantsName = new ArrayList<>();
+        for (int i = 0; i < Data.restaurants.size(); i++)
+        {
+            restaurantsName.add(Data.restaurants.get(i).name);
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, restaurantsName);
+        final AutoCompleteTextView restaurantsACTV = (AutoCompleteTextView)dialogView.findViewById(R.id.restaurantsACTV);
+        restaurantsACTV.setAdapter(adapter);
 
         date.setOnFocusChangeListener(new View.OnFocusChangeListener()
         {
@@ -170,14 +218,29 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
                         }
                         try
                         {
-                            new CreateEvent().execute(String.valueOf(Data.userID), tags.getText().toString(),
+                            int eventID = new CreateEvent().execute(String.valueOf(Data.userID), tags.getText().toString(),
                                     date.getText().toString() + " " + time.getText().toString(), title.getText().toString(), note.getText().toString()).get();
+                            Log.e("Test", String.valueOf(eventID));
+                            ArrayList<User> userList = new ArrayList<>();
+                            userList.add(Data.getActiveUser());
+
+                            Event createdEvent = new Event(
+                                    eventID,
+                                    title.getText().toString(),
+                                    userList,
+                                    date.getText().toString() + " " + time.getText().toString(),
+                                    note.getText().toString(),
+                                    Data.getRestaurantByName(restaurantsACTV.getText().toString()));
+
+                            Data.events.add(createdEvent);
+                            listView.setAdapter(null);
+                            setAdapter();
+
                         }
                         catch (Exception ex)
                         {
                             ex.printStackTrace();
                         }
-                        // Kód, pomocí kterého se získané informace počlou serveru pod tuto řádku.
                     }
                 });
 
