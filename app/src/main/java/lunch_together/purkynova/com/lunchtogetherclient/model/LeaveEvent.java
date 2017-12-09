@@ -13,7 +13,7 @@ import java.net.URLEncoder;
  * Created by vojtech on 12/9/17.
  */
 
-public class DeleteEvent extends AsyncTask<String, Void, Void>
+public class LeaveEvent extends AsyncTask<String, Void, Void>
 {
     @Override
     protected Void doInBackground(String... params)
