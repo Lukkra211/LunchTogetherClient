@@ -12,17 +12,16 @@ public final class Event {
     public final int id;
     public final String title;
     public final ArrayList<User> users;
-    public final String place;
     public final String note;
     public final Date time;
+    public final Restaurant restaurant;
 
-    public Event(int id, String title, ArrayList<User> users, String time, String place,
-                 String note) throws ParseException {
+    public Event(int id, String title, ArrayList<User> users, String time, String note, Restaurant restaurant) throws ParseException {
         this.id = id;
         this.title = title;
         this.users = users;
-        this.place = place;
         this.note = note;
+        this.restaurant = restaurant;
 
         this.time = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time);
     }
