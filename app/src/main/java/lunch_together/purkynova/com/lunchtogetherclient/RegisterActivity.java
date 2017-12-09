@@ -1,6 +1,9 @@
 package lunch_together.purkynova.com.lunchtogetherclient;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,30 +39,35 @@ public class RegisterActivity extends AppCompatActivity {
         String register = "";
         Model commModel = new Model();
 
-        if(password.equals(passwordConfirm) )
-        {
-            if (!(name.equals("") || email.equals("") || password.equals("")))
+        if(isNetworkAvailable()){
+            if(password.equals(passwordConfirm) )
             {
-                register = commModel.register(name,email,password);
-                if(register.equals(""))
+                if (!(name.equals("") || email.equals("") || password.equals("")))
                 {
-                    Toast.makeText(this,"Registrace proběhla úspěšně !",Toast.LENGTH_LONG).show();
-                    Intent loginIntent = new Intent(this,LoginActivity.class);
-                    startActivity(loginIntent);
-                    finish();
-                }
-                else
+                    register = commModel.register(name,email,password);
+                    if(register.equals(""))
+                    {
+                        Toast.makeText(this,"Registrace proběhla úspěšně !",Toast.LENGTH_LONG).show();
+                        Intent loginIntent = new Intent(this,LoginActivity.class);
+                        startActivity(loginIntent);
+                        finish();
+                    }
+                    else
+                    {
+                        Toast.makeText(this, register, Toast.LENGTH_LONG).show();
+                    }
+                }else
                 {
-                    Toast.makeText(this, register, Toast.LENGTH_LONG).show();
+                 Toast.makeText(this,"Všechna pole musí být vyplněna !",Toast.LENGTH_LONG).show();
                 }
-            }else
-            {
-             Toast.makeText(this,"Všechna pole musí být vyplněna !",Toast.LENGTH_LONG).show();
             }
-        }
-        else
+            else
+            {
+                Toast.makeText(this,"Hesla se neshodují !",Toast.LENGTH_LONG).show();
+            }
+        }else
         {
-            Toast.makeText(this,"Hesla se neshodují !",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Přístup k internetu není k dispozici !",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -72,5 +80,13 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void onClickBack_register(View view) {
         finish();
+    }
+
+    boolean isNetworkAvailable() {
+        ConnectivityManager cm = (ConnectivityManager)this.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+        return isConnected;
     }
 }
