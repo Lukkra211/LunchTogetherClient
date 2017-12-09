@@ -24,7 +24,7 @@ public class GetEvents extends AsyncTask<String, Void, JSONObject>
         {
             String data = "&" + URLEncoder.encode("user_id", "UTF-8") + "=" + URLEncoder.encode(params[0], "UTF-8");
 
-            URL url = new URL("http://10.10.4.214:8000/get_events");
+            URL url = new URL("http://10.10.4.214:8000/api/get_events");
 
             URLConnection connection = url.openConnection();
             connection.setDoOutput(true);

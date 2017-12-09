@@ -20,13 +20,13 @@ public class Data
     public static int activeEvent = -1;
     public static int userID = -1;
 
-
     public Data(JSONObject response)
     {
         try
         {
             JSONArray jsonEvents = response.getJSONArray("events");
             JSONArray jsonUsers = response.getJSONArray("users");
+            activeEvent = Integer.parseInt(response.getString("user_belongs_to"));
 
             for(int i = 0; i < jsonUsers.length(); i++)
             {
@@ -59,7 +59,7 @@ public class Data
                 String addr = address.substring(0,address.indexOf(","));
 
                 Restaurant restaurant = new Restaurant(Integer.parseInt(restaurant_id),name_restaurant,city + " " + addr,menu,rating);
-                
+
                 ArrayList<User> eventUsers = new ArrayList<>();
 
                 for (int j = 0; j < users.size() ; j++)

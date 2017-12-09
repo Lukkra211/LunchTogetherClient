@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context="lunch_together.purkynova.com.lunchtogetherclient.EventListActivity">
 
+    <Button
+        android:id="@+id/create_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vytvořit událost"/>
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"

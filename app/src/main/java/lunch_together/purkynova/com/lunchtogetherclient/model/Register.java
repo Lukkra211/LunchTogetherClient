@@ -25,7 +25,7 @@ public class Register extends AsyncTask<String, Void, String>
             data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
             data += "&" + URLEncoder.encode("mail", "UTF-8") + "=" + URLEncoder.encode(params[2], "UTF-8");
 
-            URL url = new URL("http://10.10.4.214:8000/register");
+            URL url = new URL("http://10.10.4.214:8000/api/register");
 
             URLConnection connection = url.openConnection();
             connection.setDoOutput(true);
