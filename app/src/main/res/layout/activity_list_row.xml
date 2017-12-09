@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
+    android:background="#eaeaea"
     android:orientation="horizontal"
     android:weightSum="4">
     <LinearLayout
@@ -10,14 +11,19 @@
         android:layout_height="match_parent"
         android:weightSum="8"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/list_row_title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="5"/>
+            android:layout_weight="5"
+            android:textColor="#ff5000"
+            android:textSize="18sp" />
         <TextView
             android:id="@+id/list_row_place"
             android:layout_width="match_parent"
+            android:textSize="12sp"
+            android:textColor="#537de0"
             android:layout_height="0dp"
             android:layout_weight="3"/>
     </LinearLayout>
@@ -30,6 +36,9 @@
     <TextView
         android:id="@+id/list_row_time"
         android:layout_width="0dp"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:gravity="center"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
 
