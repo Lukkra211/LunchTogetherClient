@@ -37,6 +37,7 @@ public class AnimateActivity extends AppCompatActivity {
         @Override
         public void run() {
             startActivity(loginIntent);
+            overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
             finish();
         }
     };

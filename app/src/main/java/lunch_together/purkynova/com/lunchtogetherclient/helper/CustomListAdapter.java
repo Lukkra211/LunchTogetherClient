@@ -3,6 +3,7 @@ package lunch_together.purkynova.com.lunchtogetherclient.helper;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +44,10 @@ public final class CustomListAdapter extends ArrayAdapter {
             TextView time = view.findViewById(R.id.list_row_time);
 
             title.setText(event.title);
-            place.setText(event.place);
             time.setText(event.getTime());
+            if (event.restaurant != null) {
+                place.setText(event.restaurant.location);
+            }
         }
 
         return view;
