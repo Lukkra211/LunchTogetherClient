@@ -13,8 +13,10 @@ import lunch_together.purkynova.com.lunchtogetherclient.representation.User;
 
 public class Data
 {
-    public static ArrayList<Event> events;
+    public static ArrayList<Event> events = new ArrayList<>();
     public static ArrayList<User> users;
+    public static int activeEvent;
+    public static int userID;
 
     public Data(JSONObject response)
     {
