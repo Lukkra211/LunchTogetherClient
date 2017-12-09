@@ -63,7 +63,7 @@ public class Data
 
                     String addr = address.substring(0,address.indexOf(","));
 
-                    restaurant = new Restaurant(Integer.parseInt(restaurant_id),name_restaurant,city + " " + addr,menu,rating);
+                    restaurant = new Restaurant(Integer.parseInt(restaurant_id),name_restaurant,city + " " + addr,menu,rating, 0, 0);
                 } catch (Exception e) {}
 
                 ArrayList<User> eventUsers = new ArrayList<>();

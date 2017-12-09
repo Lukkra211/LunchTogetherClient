@@ -1,23 +1,25 @@
 package lunch_together.purkynova.com.lunchtogetherclient;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.awt.font.TextAttribute;
+
+import java.util.Locale;
 
 import lunch_together.purkynova.com.lunchtogetherclient.model.Data;
 import lunch_together.purkynova.com.lunchtogetherclient.model.Model;
-import lunch_together.purkynova.com.lunchtogetherclient.representation.User;
+import lunch_together.purkynova.com.lunchtogetherclient.representation.Event;
 
 public class EventActivity extends AppCompatActivity
 {
@@ -45,9 +47,6 @@ public class EventActivity extends AppCompatActivity
             }
         });
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         TextView titleEventTV = findViewById(R.id.titleEventTV);
         Typeface font = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
         titleEventTV.setTypeface(font);
@@ -73,6 +72,8 @@ public class EventActivity extends AppCompatActivity
             lea.setVisibility(View.GONE);
         }
 
+        findViewById(R.id.geoMaps).setOnClickListener(new StartMaps());
+
     }
 
     public void onClickAttend(View view) {
@@ -85,5 +86,26 @@ public class EventActivity extends AppCompatActivity
     public void onClickLeave(View view)
     {
         Data.activeEvent = -1;
+    }
+
+    private class StartMaps implements View.OnClickListener {
+
+        @Override
+        public void onClick(View view) {
+            Log.w("AAA", "2");
+            float x = 0;
+            float y = 0;
+
+            for (Event event: Model.data.events) {
+                if (event.id == Model.data.activeEvent) {
+                    x = event.restaurant.x;
+                    y = event.restaurant.y;
+                }
+            }
+
+            String uri = String.format(Locale.ENGLISH, "geo:%f,%f?q=%f,%f", x, y, x, y);
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+            startActivity(intent);
+        }
     }
 }

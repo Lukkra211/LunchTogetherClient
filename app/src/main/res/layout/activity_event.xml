@@ -90,6 +90,30 @@
         android:layout_marginTop="5dp">
 
         <RelativeLayout
+            android:id="@+id/geoMaps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickLeave"
+            android:layout_weight="3">
+
+            <ImageView
+                android:id="@+id/geoMaps_image"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@drawable/maps"/>
+
+            <TextView
+                android:id="@+id/geoMaps_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/geoMaps_image"
+                android:layout_centerInParent="true"
+                android:text="@string/map"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:id="@+id/attentlayout"
             android:layout_height="wrap_content"
