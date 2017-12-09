@@ -91,7 +91,9 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
+            android:id="@+id/attentlayout"
             android:layout_height="wrap_content"
+            android:onClick="onClickAttend"
             android:layout_weight="3">
 
             <ImageView
@@ -101,37 +103,20 @@
                 android:src="@drawable/attend"/>
 
             <TextView
+                android:id="@+id/attendTW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/attendIV"
                 android:layout_centerInParent="true"
-                android:text="Attend"/>
+                android:text="@string/attend"/>
 
         </RelativeLayout>
+
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3">
-
-            <ImageView
-                android:id="@+id/maybeIV"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:src="@drawable/maybe"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/maybeIV"
-                android:layout_centerInParent="true"
-                android:text="Maybe"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:onClick="onClickLeave"
             android:layout_weight="3">
 
             <ImageView
@@ -141,11 +126,12 @@
                 android:src="@drawable/ignore"/>
 
             <TextView
+                android:id="@+id/ignoreTW"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ignoreIV"
                 android:layout_centerInParent="true"
-                android:text="Ignore"/>
+                android:text="@string/leave"/>
 
         </RelativeLayout>
     </LinearLayout>
