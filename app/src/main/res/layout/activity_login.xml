@@ -1,46 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="lunch_together.purkynova.com.lunchtogetherclient.LoginActivity">
+    tools:context="lunch_together.purkynova.com.lunchtogetherclient.LoginActivity"
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/loginActivity_editTextnickName"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Email" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2"
+        android:layout_marginHorizontal="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/loginActivity_editTextnickName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Email" />
 
-    <EditText
-        android:id="@+id/loginActivity_editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/loginActivity_editTextnickName"
-        android:layout_below="@+id/loginActivity_editTextnickName"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/password"/>
+            <EditText
+                android:id="@+id/loginActivity_editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/password"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/loginActivity_buttonLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Přihlásit se"
+                android:onClick="onClickLogin"/>
 
-    <Button
-        android:id="@+id/loginActivity_buttonLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Přihlásit se"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:onClick="onClickLogin"/>
-
-    <Button
-        android:id="@+id/loginActivity_buttonRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/loginActivity_editTextPassword"
-        android:onClick="onClickRegister_activityLogin"
-        android:text="@string/register" />
-</RelativeLayout>
+            <Button
+                android:id="@+id/loginActivity_buttonRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickRegister_activityLogin"
+                android:text="@string/register" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

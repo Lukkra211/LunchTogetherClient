@@ -1,58 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="lunch_together.purkynova.com.lunchtogetherclient.RegisterActivity">
 
-    <EditText
-        android:id="@+id/registerActivity_editTextName"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/fullName" />
+        android:layout_height="match_parent"
+        android:weightSum="2"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="50dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/registerActivity_editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="@string/fullName" />
 
-    <EditText
-        android:id="@+id/registerActivity_editTextEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/registerActivity_editTextName"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="Email" />
+            <EditText
+                android:id="@+id/registerActivity_editTextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="Email" />
 
-    <EditText
-        android:id="@+id/registerActivity_editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/registerActivity_editTextEmail"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/password" />
+            <EditText
+                android:id="@+id/registerActivity_editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/password" />
 
-    <EditText
-        android:id="@+id/registerActivity_editTextPasswordConfirm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/registerActivity_editTextPassword"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/passwordConfirm" />
+            <EditText
+                android:id="@+id/registerActivity_editTextPasswordConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/passwordConfirm" />
 
-    <Button
-        android:id="@+id/registerActivity_buttonRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="onClickRegister_activityRegister"
-        android:text="@string/register" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/registerActivity_buttonRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickRegister_activityRegister"
+                android:text="@string/register" />
+            <Button
+                android:id="@+id/registerActivity_buttonBack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickBack_register"
+                android:text="Back" />
+        </LinearLayout>
 
-</RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

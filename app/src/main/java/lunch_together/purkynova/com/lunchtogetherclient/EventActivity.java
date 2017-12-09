@@ -1,7 +1,7 @@
 package lunch_together.purkynova.com.lunchtogetherclient;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class EventActivity extends AppCompatActivity {
 
@@ -10,4 +10,5 @@ public class EventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
     }
+
 }
