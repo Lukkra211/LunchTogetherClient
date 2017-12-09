@@ -32,7 +32,7 @@ public class EventListActivity extends ListActivity {
         CustomListAdapter eventAdapter = new CustomListAdapter(
                 this,
                 R.layout.activity_list_row,
-                model.getEventList()
+                null
         );
         setListAdapter(eventAdapter);
     }
