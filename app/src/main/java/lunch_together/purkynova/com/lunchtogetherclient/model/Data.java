@@ -28,7 +28,6 @@ public class Data
         {
             JSONArray jsonEvents = response.getJSONArray("events");
             JSONArray jsonUsers = response.getJSONArray("users");
-            userID = response.getInt("user_belongs_to");
 
             for(int i = 0; i < jsonUsers.length(); i++)
             {
@@ -72,6 +71,8 @@ public class Data
                 {
                     if (users.get(j).eventID == Integer.parseInt(id))
                     {
+                        if(users.get(j).id == userID)
+                            Data.activeEvent = i;
                         eventUsers.add(users.get(j));
                     }
                 }

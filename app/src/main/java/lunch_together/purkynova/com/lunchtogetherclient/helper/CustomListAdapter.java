@@ -1,6 +1,7 @@
 package lunch_together.purkynova.com.lunchtogetherclient.helper;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -42,6 +43,11 @@ public final class CustomListAdapter extends ArrayAdapter {
             TextView title = view.findViewById(R.id.list_row_title);
             TextView place = view.findViewById(R.id.list_row_place);
             TextView time = view.findViewById(R.id.list_row_time);
+
+            Typeface font = Typeface.createFromAsset(getContext().getAssets(), "Roboto-Light.ttf");
+
+            title.setTypeface(font);
+            place.setTypeface(font);
 
             title.setText(event.title);
             time.setText(event.getTime());

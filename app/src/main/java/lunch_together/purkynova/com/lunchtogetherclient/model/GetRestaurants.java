@@ -11,16 +11,16 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 
-public class Login extends AsyncTask<String, Void, Integer>{
+public class GetRestaurants extends AsyncTask<String, Void, JSONObject>
+{
     @Override
-    protected Integer doInBackground(String... params)
+    protected JSONObject doInBackground(String... params)
     {
         try
         {
-            String data = "&" + URLEncoder.encode("username", "UTF-8") + "=" + URLEncoder.encode(params[0], "UTF-8");
-            data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(params[1], "UTF-8");
+            String data = "&" + URLEncoder.encode("user_id", "UTF-8") + "=" + URLEncoder.encode(params[0], "UTF-8");
 
-            URL url = new URL("http://10.10.4.214:8000/api/login");
+            URL url = new URL("http://10.10.4.214:8000/api/get_restaurants");
 
             URLConnection connection = url.openConnection();
             connection.setDoOutput(true);
@@ -38,10 +38,7 @@ public class Login extends AsyncTask<String, Void, Integer>{
             result = stringBuilder.toString();
             JSONObject json = new JSONObject(stringBuilder.toString());
 
-            int userid = Integer.parseInt(json.get("user_id").toString());
-            Data.userID = userid;
-
-            return userid;
+            return json;
         }
         catch (Exception ex)
         {

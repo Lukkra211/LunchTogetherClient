@@ -6,6 +6,7 @@ import android.app.ListActivity;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,8 +14,11 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Calendar;
 
@@ -63,6 +67,14 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
                 Model.data.events
         );
         setListAdapter(eventAdapter);
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        if(model == null)
+            new Model().initializeData(String.valueOf(Data.userID));
     }
 
     class OnItemClick implements AdapterView.OnItemClickListener {
