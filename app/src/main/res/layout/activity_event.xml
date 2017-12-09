@@ -1,9 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="lunch_together.purkynova.com.lunchtogetherclient.EventActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/headerRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp">
+
+        <RelativeLayout
+            android:id="@+id/titleRL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp">
+
+            <TextView
+                android:id="@+id/titleEventTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:text="Nej udalost"
+                android:textColor="@android:color/white"
+                android:textSize="26dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/titleEventTV"
+                android:layout_marginRight="5dp"
+                android:background="@android:color/black"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/restaurantTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titleRL"
+            android:layout_marginTop="5sp"
+            android:text="Best restaurant"
+            android:textColor="#f9f9f9"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/timeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/restaurantTV"
+            android:layout_marginTop="5sp"
+            android:fontFamily="serif"
+            android:text="24.12.12:00"
+            android:textColor="#f9f9f9"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/placeTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/titleRL"
+            android:layout_marginTop="5sp"
+            android:fontFamily="serif"
+            android:text="Best Place"
+            android:textColor="#f9f9f9"
+            android:textSize="18dp"/>
+
+        <TextView
+            android:id="@+id/ratingsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/restaurantTV"
+            android:layout_marginTop="5sp"
+            android:fontFamily="serif"
+            android:text="7.8/10"
+            android:textColor="#f9f9f9"
+            android:textSize="18dp"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:id="@+id/attentlayout"
+            android:layout_height="wrap_content"
+            android:onClick="onClickAttend"
+            android:layout_weight="3">
+
+            <ImageView
+                android:id="@+id/attendIV"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@drawable/attend"/>
+
+            <TextView
+                android:id="@+id/attendTW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/attendIV"
+                android:layout_centerInParent="true"
+                android:text="@string/attend"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClickLeave"
+            android:layout_weight="3">
+
+            <ImageView
+                android:id="@+id/ignoreIV"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@drawable/ignore"/>
+
+            <TextView
+                android:id="@+id/ignoreTW"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ignoreIV"
+                android:layout_centerInParent="true"
+                android:text="@string/leave"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/titleEventTV"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:background="@android:color/black"/>
+
+    <ListView
+        android:id="@+id/attendersLV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
+
+</LinearLayout>

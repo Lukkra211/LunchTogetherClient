@@ -1,5 +1,7 @@
 package lunch_together.purkynova.com.lunchtogetherclient.model;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import lunch_together.purkynova.com.lunchtogetherclient.representation.Event;
@@ -11,7 +13,9 @@ import lunch_together.purkynova.com.lunchtogetherclient.representation.User;
 
 public class Model
 {
-    public String register(String name, String mail, String password)
+    public static Data data = null;
+
+    public static String register(String name, String mail, String password)
     {
         try
         {
@@ -24,7 +28,7 @@ public class Model
         return "";
     }
 
-    public int login(String name, String password)
+    public static int login(String name, String password)
     {
         try
         {
@@ -42,19 +46,16 @@ public class Model
         return null;
     }
 
-    public ArrayList<Event> getEventList()
+    public void initializeData(String userID)
     {
-        ArrayList<Event> test = new ArrayList<Event>();
-        try {
-            test.add(new Event("První", new ArrayList<User>(), "2017-12-09 12:00", "Purkuňova 1990"));
-            test.add(new Event("Druhá", new ArrayList<User>(), "2017-12-09 12:00", "Měsíc 100"));
-            test.add(new Event("Třetí", new ArrayList<User>(), "2017-12-09 12:00", "Na nádraží"));
-            test.add(new Event("Čtvrtá", new ArrayList<User>(), "2017-12-09 12:00", "Na hřbitově"));
-        } catch (Exception e) {
-
+        try
+        {
+            JSONObject response = new GetEvents().execute(userID).get();
+            this.data = new Data(response);
         }
-
-
-        return test;
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 }
