@@ -23,13 +23,14 @@ public class EventActivity extends AppCompatActivity
 {
 
     AlertDialog.Builder builder;
+    int EventId;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event);
         Intent in = getIntent();
-        int EventId = in.getExtras().getInt("EventID");
+        EventId = in.getExtras().getInt("EventID");
 
         ListView attendersLV = findViewById(R.id.attendersLV);
         final String[] attenders = new String[]{"Jan Novak","Petr Horak", "Jana fsadfaskj", "fjsdhfkj sdkjf"};
@@ -75,10 +76,14 @@ public class EventActivity extends AppCompatActivity
     }
 
     public void onClickAttend(View view) {
-
+        if(Data.activeEvent == -1)
+        {
+            Data.activeEvent = EventId;
+        }
     }
 
-    public void onClickLeave(View view) {
-
+    public void onClickLeave(View view)
+    {
+        Data.activeEvent = -1;
     }
 }

@@ -17,8 +17,8 @@ public class Data
 {
     public static ArrayList<Event> events = new ArrayList<>();
     public static ArrayList<User> users = new ArrayList<>();
-    public static int activeEvent;
-    public static int userID;
+    public static int activeEvent = -1;
+    public static int userID = -1;
 
 
     public Data(JSONObject response)
