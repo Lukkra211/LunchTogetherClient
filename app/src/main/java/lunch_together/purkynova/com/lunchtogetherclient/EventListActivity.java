@@ -3,6 +3,7 @@ package lunch_together.purkynova.com.lunchtogetherclient;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +11,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -20,12 +23,14 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import lunch_together.purkynova.com.lunchtogetherclient.helper.CustomListAdapter;
 import lunch_together.purkynova.com.lunchtogetherclient.model.CreateEvent;
 import lunch_together.purkynova.com.lunchtogetherclient.model.Data;
 
+import lunch_together.purkynova.com.lunchtogetherclient.model.GetRestaurants;
 import lunch_together.purkynova.com.lunchtogetherclient.model.Model;
 
 public class EventListActivity extends ListActivity implements View.OnClickListener {
@@ -43,6 +48,14 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        try
+        {
+            new GetRestaurants().execute("").get();
+        }
+        catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
         initParams();
         initUI();
     }
@@ -142,6 +155,20 @@ public class EventListActivity extends ListActivity implements View.OnClickListe
 
         date = (EditText) dialogView.findViewById(R.id.event_add_date);
         time = (EditText) dialogView.findViewById(R.id.event_add_time);
+        TextView headerCreateTV = (TextView) dialogView.findViewById(R.id.headerCreateTV);
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "Roboto-Light.ttf");
+        headerCreateTV.setTypeface(font);
+
+        ArrayList<String> restaurantsName = new ArrayList<>();
+        for (int i = 0; i < Data.restaurants.size(); i++)
+        {
+            restaurantsName.add(Data.restaurants.get(i).name);
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, restaurantsName);
+        AutoCompleteTextView restaurantsACTV = (AutoCompleteTextView)dialogView.findViewById(R.id.restaurantsACTV);
+        restaurantsACTV.setAdapter(adapter);
 
         date.setOnFocusChangeListener(new View.OnFocusChangeListener()
         {

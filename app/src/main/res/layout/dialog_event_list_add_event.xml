@@ -7,6 +7,7 @@
               tools:context="lunch_together.purkynova.com.lunchtogetherclient.EventListActivity">
 
     <TextView
+        android:id="@+id/headerCreateTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -29,6 +30,13 @@
             android:layout_height="wrap_content"
             android:hint="Zadej název skupiny"
             android:inputType="textEmailAddress"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/restaurantsACTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Zadej Restauraci"
+            android:completionThreshold="0" />
 
         <EditText
             android:id="@+id/event_add_date"
