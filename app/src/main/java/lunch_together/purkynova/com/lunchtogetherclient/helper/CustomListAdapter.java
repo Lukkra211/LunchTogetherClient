@@ -43,7 +43,7 @@ public final class CustomListAdapter extends ArrayAdapter {
             TextView time = view.findViewById(R.id.list_row_time);
 
             title.setText(event.title);
-            place.setText(event.place);
+            place.setText(event.restaurant.location);
             time.setText(event.getTime());
         }
 

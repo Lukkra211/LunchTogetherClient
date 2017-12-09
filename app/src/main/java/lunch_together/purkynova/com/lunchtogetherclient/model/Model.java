@@ -58,4 +58,15 @@ public class Model
             ex.printStackTrace();
         }
     }
+
+    public void joinEvent(String userID, String eventID)
+    {
+
+    }
+
+    public void leaveEvent(String userID)
+    {
+
+    }
+
 }
